@@ -3,12 +3,15 @@
         <div class="card">
             <div class="card-header">Posted On {{ thought.created_at }}</div>
             <div class="card-body">
-                <p>{{ thought.description }}</p>
+                <input v-if="editMode" type="text" class="form-control" v-model="thought.description">
+                <p v-else >{{ thought.description }}</p>
             </div>
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Edit Thought</button>
-                <button type="submit" class="btn btn-danger">Delete Thought</button>
+                <button v-if="editMode" class="btn btn-success" v-on="onClickUpdate()">Save Changes</button>
+                <button v-else class="btn btn-primary" v-on:click="onClickEdit()">Edit Thought</button>
+
+                <button class="btn btn-danger" v-on:click="onClickDelete()">Delete Thought</button>
             </div>
         </div>
     </div>       
@@ -22,11 +25,29 @@
         data()
         {
             return {
+                editMode: false,
             };
         },
 
         mounted() {
             console.log('Component mounted.')
+        },
+
+        methods:{
+            onClickDelete(){
+                this.$emit('delete');
+            },
+
+            onClickEdit()
+            {
+                this.editMode = true;
+            },
+
+            onClickUpdate()
+            {
+                this.editMode = false;
+                this.$emit('update', thought);
+            }
         }
     }
 </script>
