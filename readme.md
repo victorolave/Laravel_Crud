@@ -9,7 +9,7 @@ For the programming of this program:
 * [VueJS](https://vuejs.org/) - The Progressive JavaScript Framework.
 * [MySQL](https://www.mysql.com/) - Data Base.
 
-##Based on work of 🚩
+## Based on work of 🚩
 [JCarlos](https://github.com/JCarlosR) | [His repository](https://github.com/JCarlosR/my-thoughts)
 
 ## Autor ✒️
