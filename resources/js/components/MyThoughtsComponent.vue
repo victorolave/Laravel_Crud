@@ -26,7 +26,10 @@
         },
 
         mounted() {
-            console.log('Component mounted.');
+            axios.get('/thoughts')
+            .then( response => {
+                this.thoughts = response.data;
+            });
         },
 
         methods: {

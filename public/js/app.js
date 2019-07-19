@@ -1726,12 +1726,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     newThought: function newThought() {
-      var thought = {
-        id: 2,
-        description: this.description,
-        created_at: '17/07/2019'
+      var _this = this;
+
+      var params = {
+        description: this.description
       };
-      this.$emit('new', thought);
+      this.description = '';
+      axios.post('/thoughts', params).then(function (response) {
+        var thought = response.data;
+
+        _this.$emit('new', thought);
+      });
     }
   }
 });
@@ -1771,7 +1776,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var _this = this;
+
+    axios.get('/thoughts').then(function (response) {
+      _this.thoughts = response.data;
+    });
   },
   methods: {
     addThought: function addThought(thought) {

@@ -31,12 +31,18 @@ import ThoughtComponentVue from './ThoughtComponent.vue';
 
         methods:{
             newThought(){
-                let thought = {
-                    id: 2,
-                    description: this. description,
-                    created_at:  '17/07/2019'
+
+                const params = {
+                    description: this.description
                 }
-                this.$emit('new', thought);
+
+                this.description = '';
+
+                axios.post('/thoughts', params)
+                .then( response => {
+                    const thought = response.data;
+                    this.$emit('new', thought)
+                });
             }
         }
     }
