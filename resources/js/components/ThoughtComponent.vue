@@ -8,7 +8,7 @@
             </div>
 
             <div class="card-footer">
-                <button v-if="editMode" class="btn btn-success" v-on="onClickUpdate()">Save Changes</button>
+                <button v-if="editMode" class="btn btn-success" v-on:click="onClickUpdate()">Save Changes</button>
                 <button v-else class="btn btn-primary" v-on:click="onClickEdit()">Edit Thought</button>
 
                 <button class="btn btn-danger" v-on:click="onClickDelete()">Delete Thought</button>

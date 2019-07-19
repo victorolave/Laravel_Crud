@@ -1767,11 +1767,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      thoughts: [{
-        'id': 1,
-        'description': "abd",
-        'created_at': "17/07/2019"
-      }]
+      thoughts: []
     };
   },
   mounted: function mounted() {
@@ -37306,7 +37302,14 @@ var render = function() {
         _vm.editMode
           ? _c(
               "button",
-              _vm._g({ staticClass: "btn btn-success" }, _vm.onClickUpdate()),
+              {
+                staticClass: "btn btn-success",
+                on: {
+                  click: function($event) {
+                    return _vm.onClickUpdate()
+                  }
+                }
+              },
               [_vm._v("Save Changes")]
             )
           : _c(

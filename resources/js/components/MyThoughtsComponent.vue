@@ -21,11 +21,6 @@
         data() {
             return {
                 thoughts: [
-                    {
-                        'id': 1,
-                        'description': "abd",
-                        'created_at': "17/07/2019"
-                    }
                 ]
             }
         },
